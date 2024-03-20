@@ -1,36 +1,16 @@
 func minimumLength(s string) int {
-    left := 0
-    n:= len(s) - 1
-    right := n
-    c := byte('d')
-    for left < n && right >= 0 && left <= right {
-        if left == right {
-            if s[left] != c {
-                return 1
-            }
-            return 0
+    begin := 0
+    end := len(s) - 1
+
+    for begin < end && s[begin] == s[end] {
+        c := s[begin]
+        for begin <= end && s[begin] == c {
+            begin++
         }
-        if s[right] == c {
-            right--
-            continue
-        }
-        if s[left] == c {
-            left++
-            continue
-        }
-        if s[left] != s[right] && c == 'd' {
-            break
-        }
-        if s[left] == s[right] {
-            c = s[left]
-            right--
-            continue
-        }
-        if s[left] != s[right] {
-            c = 'd'
-            continue
+        for begin < end && s[end] == c {
+            end--
         }
     }
-    return len(s[left:right+1])
+    return end-begin+1
 }
 
