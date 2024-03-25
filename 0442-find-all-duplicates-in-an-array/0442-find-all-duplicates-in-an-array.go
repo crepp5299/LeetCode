@@ -1,7 +1,7 @@
 func findDuplicates(nums []int) []int {
     n := len(nums)
     result := make([]int, 0, n+1)
-    var num int
+    num := 0
     for _, val := range nums {
         num = val
         if val < 0 {
