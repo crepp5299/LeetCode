@@ -1,20 +1,30 @@
 func firstMissingPositive(nums []int) int {
-    sort.Ints(nums)
-    num := 1
-    prevNum := 0
+    n := len(nums)
+    for i := range nums {
+        if nums[i] <=0 || nums[i] > n {
+            nums[i] = n + 1
+        }
+    }
     for _, val := range nums {
-        if val <= 0 {
+        x := abs(val)
+        if x == n + 1 {
             continue
         }
-        if val == prevNum {
-            continue
+        if nums[x-1] > 0 {
+            nums[x-1]*=-1
         }
-        if val == num {
-            prevNum = val
-            num ++
-        } else {
-            break
+    }
+    for i := range nums {
+        if nums[i] > 0  {
+            return i + 1
         }
+    }
+    return n + 1
+}
+
+func abs(num int) int {
+    if num < 0 {
+        return 0 - num
     }
     return num
 }
