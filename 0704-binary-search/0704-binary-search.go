@@ -3,19 +3,19 @@ func search(nums []int, target int) int {
         return 0
     }
     l, r := 0, len(nums) - 1
-    m := (l+r)/2
-    for {
+   
+    for l <= r {
         if l > r {
             break
         }
+        m := (l+r)/2
+        if nums[m] == target {
+            return m
+        }
         if nums[m] > target {
             r = m - 1
-            m = (l+r)/2
         } else if nums[m] < target {
             l  = m + 1
-            m = (l+r)/2
-        } else if nums[m] == target {
-            return m
         }
     }
     return -1
