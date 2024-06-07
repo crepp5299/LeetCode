@@ -1,9 +1,5 @@
 func search(nums []int, target int) int {
-    if nums[0] == target {
-        return 0
-    }
     l, r := 0, len(nums) - 1
-   
     for l <= r {
         if l > r {
             break
