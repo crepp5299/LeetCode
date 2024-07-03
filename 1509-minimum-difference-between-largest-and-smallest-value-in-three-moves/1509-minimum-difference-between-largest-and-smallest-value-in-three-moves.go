@@ -4,7 +4,7 @@ func minDifference(nums []int) int {
     if l <= 4 {
         return 0
     }
-    t:=len(nums)-3-1
+    t:=l-3-1
     rs := nums[t] - nums[0]
     for i:=1;i+t < l;i++ {
         if nums[i+t] - nums[i] < rs {
