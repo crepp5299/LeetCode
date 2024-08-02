@@ -1,7 +1,7 @@
 func minSwaps(nums []int) int {
     n := len(nums)
     len1 := 0
-    for i := range nums {
+    for i := 0; i < n; i++ {
         if nums[i] == 1 {
             len1++
         }
