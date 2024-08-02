@@ -1,6 +1,6 @@
 func minSwaps(nums []int) int {
     n := len(nums)
-    nums2 := make([]int, 0, 2*n)
+    nums2 := make([]int, 0, n)
     nums2 = append(nums2, nums...)
     len1 := 0
     for i := range nums {
