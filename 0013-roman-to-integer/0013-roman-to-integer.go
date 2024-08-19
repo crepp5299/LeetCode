@@ -1,6 +1,5 @@
 func romanToInt(s string) int {
-sum := 0
-
+    sum := 0
 	rim := map[string]int{
 		"I": 1,
 		"V": 5,
@@ -10,14 +9,14 @@ sum := 0
 		"D": 500,
 		"M": 1000,
 	}
+    sum += rim[string(s[0])]
+    
 
-	for i, v := range s {
-		sum += rim[string(v)]
-		if i != 0 {
-			if rim[string(s[i-1])] < rim[string(v)] {
-				sum -= 2 * rim[string(s[i-1])]
-			}
-		}
+    for i := 1; i < len(s); i++ {
+		sum += rim[string(s[i])]
+        if rim[string(s[i-1])] < rim[string(s[i])] {
+            sum -= 2 * rim[string(s[i-1])]
+        }
 	}
 
 	return sum
