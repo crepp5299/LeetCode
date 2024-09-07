@@ -1,5 +1,5 @@
 func numJewelsInStones(jewels string, stones string) int {
-    m := make(map[string]int)
+    m := make(map[string]int, 50)
     for i := range stones {
         m[string(stones[i])]++
     }
