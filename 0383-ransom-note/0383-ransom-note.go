@@ -1,11 +1,11 @@
 func canConstruct(ransomNote string, magazine string) bool {
-    m := make(map[string]int)
+    m := make(map[byte]int, 26)
     for i := range magazine {
-        m[string(magazine[i])]++
+        m[magazine[i]]++
     }
     for i := range ransomNote {
-        if m[string(ransomNote[i])] > 0 {
-            m[string(ransomNote[i])]--
+        if m[ransomNote[i]] > 0 {
+            m[ransomNote[i]]--
         } else {
             return false
         }
