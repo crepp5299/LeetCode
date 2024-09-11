@@ -4,7 +4,7 @@ func maxNumberOfBalloons(text string) int {
     for _, c := range text {
         m[c]++
     }
-    min := m['b']
+    min := math.MaxInt
     for k, v := range b {
         if m[k]/v < min {
             min = m[k]/v
