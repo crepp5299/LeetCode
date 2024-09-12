@@ -1,7 +1,6 @@
 func isValidSudoku(board [][]byte) bool {
     for i := 0; i < 9; i++ {
         m := make(map[byte]bool)
-        n := make(map[byte]bool)
         for j := 0; j < 9; j++ {
             if m[board[i][j]] {
                 return false
@@ -9,15 +8,20 @@ func isValidSudoku(board [][]byte) bool {
             if board[i][j] != '.' {
                 m[board[i][j]] = true
             }
-            if n[board[j][i]] {
-                return false
-            }
-            if board[j][i] != '.' {
-                n[board[j][i]] = true
-            }
         }
     }
     
+    for i := 0; i < 9; i++ {
+        m := make(map[byte]bool)
+        for j := 0; j < 9; j++ {
+            if m[board[j][i]] {
+                return false
+            }
+            if board[j][i] != '.' {
+                m[board[j][i]] = true
+            }
+        }
+    }
     items := [][]int{
         {0, 0}, {0, 3}, {0, 6},
         {3, 0}, {3, 3}, {3, 6},
