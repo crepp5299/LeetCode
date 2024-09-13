@@ -15,11 +15,11 @@
 
 func majorityElement(nums []int) int {
     sort.Slice(nums, func(i, j int) bool {
-    return nums[i] < nums[j]
+        return nums[i] < nums[j]
     })
     count := 1
     n := len(nums)
-    for i := 1; i < n; i++ {
+    for i := 1; i < len(nums); i++ {
         if nums[i] == nums[i-1] {
             count++
         } else {
