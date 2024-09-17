@@ -1,9 +1,9 @@
 func twoSum(numbers []int, target int) []int {
     i, j := 0, len(numbers) - 1
     for i < j {
-        if numbers[i] + numbers[j] == target {
+        if a := numbers[i] + numbers[j]; a == target {
             return []int{i+1, j+1}
-        } else if numbers[i] + numbers[j] > target {
+        } else if a > target {
             j--
         } else {
             i++
