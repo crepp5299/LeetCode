@@ -2,9 +2,9 @@ func isPalindrome(s string) bool {
     s = strings.ToUpper(s)
     i,j:=0,len(s)-1
     for i < j {
-        if !checkOk(s[i]) {
+        if !(s[i] >= 65 && s[i] <= 90 || s[i] >= 48 && s[i] <= 57) {
             i++
-        } else if !checkOk(s[j]) {
+        } else if !(s[j] >= 65 && s[j] <= 90 || s[j] >= 48 && s[j] <= 57) {
             j--
         } else if s[i]==s[j] {
             i++
@@ -14,14 +14,4 @@ func isPalindrome(s string) bool {
         }
     }
     return true
-}
-
-func checkOk(s byte) bool {
-    if s >= 65 && s <= 90 {
-        return true
-    }
-    if s >= 48 && s <= 57 {
-        return true
-    }
-    return false
 }
