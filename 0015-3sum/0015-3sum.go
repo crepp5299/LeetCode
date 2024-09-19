@@ -2,7 +2,6 @@ func threeSum(nums []int) [][]int {
     sort.Slice(nums, func(i, j int) bool {
         return nums[i] <nums[j]
     })
-    fmt.Println(nums)
     rs := make([][]int, 0)
     n := len(nums)
     for index := 0; index < n; index++ {
