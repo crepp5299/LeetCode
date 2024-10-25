@@ -1,30 +1,24 @@
 func trap(height []int) int {
-    h := len(height)
-    l, maxL, maxR := make([]int, h), 0, 0
-    for i := range height {
-        l[i] = maxL
-        maxL = max(height[i], maxL)
-    }
-    maxL = 0
-    for i := range height {
-        if min(l[h-1-i], maxR) - height[h-1-i] > 0 {
-            maxL += min(l[h-1-i], maxR) - height[h-1-i]
+    i, j := 0, len(height) - 1
+    maxL, maxR, rs := 0, 0, 0
+    for i < j {
+        if height[i] <= height[j]{
+            if maxL - height[i] > 0 {
+                rs += maxL - height[i]
+            }
+            if maxL < height[i] {
+                maxL = height[i]
+            }
+            i++
+        } else {
+            if maxR - height[j] > 0 {
+                rs += maxR - height[j]
+            }
+            if maxR < height[j] {
+                maxR = height[j]
+            }
+            j--
         }
-        maxR = max(height[h-1-i], maxR)
     }
-    return maxL
-}
-
-func max(a, b int) int {
-    if a > b {
-        return a
-    }
-    return b
-}
-
-func min(a, b int) int {
-    if a < b {
-        return a
-    }
-    return b
+    return rs
 }
